@@ -1,7 +1,14 @@
 package ceg.avtechlabs.quper.utils
 
+import android.Manifest
+import android.app.Activity
 import android.content.Context
+import android.content.pm.PackageManager
 import android.os.Environment
+import android.support.v4.app.ActivityCompat
+import android.support.v4.content.ContextCompat
+import android.util.DisplayMetrics
+import android.view.WindowManager
 import android.widget.Toast
 import java.io.File
 
@@ -25,4 +32,10 @@ fun Context.checkAndMakeQuperDirectory(): String {
 fun Context.getFullPath(fileName: String): String {
     val dir = checkAndMakeQuperDirectory()
     return File(dir, "$fileName.png").toString()
+}
+
+fun Activity.permissionGranted() : Boolean{
+    return ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
+            PackageManager.PERMISSION_GRANTED
+
 }

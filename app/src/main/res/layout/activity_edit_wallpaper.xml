@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ceg.avtechlabs.quper.ui.EditWallpaper">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:hint="Type something .."
+        android:id="@+id/textView_editQuote"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"/>
+
+    <Button
+        android:id="@+id/button_changeBackground"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="17dp"
+        android:layout_marginStart="17dp"
+        android:text="Change"
+        android:onClick="changeColor"/>
+
+    <Button
+        android:id="@+id/button_changeTypeface"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_toEndOf="@+id/button_changeBackground"
+        android:layout_toRightOf="@+id/button_changeBackground"
+        android:text="Font"
+        android:onClick="changeTypeface"/>
+
+    <Button
+        android:id="@+id/button_saveQuote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="18dp"
+        android:layout_marginStart="18dp"
+        android:layout_toEndOf="@+id/button_changeTypeface"
+        android:layout_toRightOf="@+id/button_changeTypeface"
+        android:text="Save"
+        android:onClick="save"/>
+
+</RelativeLayout>
