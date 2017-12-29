@@ -12,8 +12,12 @@
         android:layout_centerHorizontal="true"
         android:layout_centerInParent="true"
         android:hint="Type something .."
+        android:textColorHint="@android:color/white"
         android:id="@+id/textView_editQuote"
         android:textColor="@android:color/white"
+        android:background="@android:color/transparent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
         android:textSize="30sp"/>
 
     <Button

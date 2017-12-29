@@ -4,6 +4,7 @@ import android.annotation.TargetApi
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Color
+import android.graphics.Point
 import android.graphics.PorterDuff
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -11,7 +12,9 @@ import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import ceg.avtechlabs.quper.R
+import ceg.avtechlabs.quper.utils.changeFont
 import ceg.avtechlabs.quper.utils.getFullPath
 import kotlinx.android.synthetic.main.activity_edit_wallpaper.*
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
@@ -33,9 +36,6 @@ class EditWallpaper : AppCompatActivity() {
         @TargetApi(21)
         window.statusBarColor = Color.TRANSPARENT
 
-        textView_editQuote.getBackground().setColorFilter(Color.TRANSPARENT, PorterDuff.Mode.SRC_IN);
-        textView_editQuote.getBackground().clearColorFilter()
-
         changeBackground()
     }
 
@@ -50,14 +50,7 @@ class EditWallpaper : AppCompatActivity() {
     }
 
     fun changeTypeface(v: View) {
-        val builder = SpannableStringBuilder()
-        val content = textView_editQuote.text.toString()
-        builder.append(content)
-
-        val index = Random().nextInt(fonts.size)
-        val typefaceSpan = CalligraphyTypefaceSpan(TypefaceUtils.load(assets, fonts[index]))
-        builder.setSpan(typefaceSpan, 0, content.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-        textView_editQuote.setText(builder, TextView.BufferType.SPANNABLE)
+        textView_editQuote.changeFont(this, fonts)
     }
 
     fun hideButtons() {
@@ -73,12 +66,11 @@ class EditWallpaper : AppCompatActivity() {
     }
 
     fun save(v: View) {
-        val view = window.decorView
+        val view = window.decorView.rootView
         hideButtons()
         view.isDrawingCacheEnabled = true
-        view.measure(View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),
-                View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED))
-        view.layout(0,0, view.measuredWidth, view.measuredHeight)
+        val size = getDimensions()
+        //Toast.makeText(this, "${size.x}, ${size.y}", Toast.LENGTH_LONG).show()
         view.buildDrawingCache(true)
         val bitmap = Bitmap.createBitmap(view.drawingCache)
 
@@ -88,8 +80,10 @@ class EditWallpaper : AppCompatActivity() {
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, out)
             out.flush()
             out.close()
+            Toast.makeText(this, "File saved as $fileName", Toast.LENGTH_LONG).show()
         } catch (ex: Exception) {
             ex.printStackTrace()
+            Toast.makeText(this, "Failed. Try again :)", Toast.LENGTH_LONG).show()
         } finally {
             view.isDrawingCacheEnabled = false
         }
@@ -99,5 +93,12 @@ class EditWallpaper : AppCompatActivity() {
 
     override fun attachBaseContext(newBase: Context?) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
+    }
+
+    fun getDimensions(): Point {
+        val display = windowManager.defaultDisplay
+        val size = Point()
+        display.getSize(size)
+        return size
     }
 }
