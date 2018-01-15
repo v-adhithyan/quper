@@ -1,13 +1,16 @@
 package ceg.avtechlabs.quper.ui
 
 import android.annotation.TargetApi
+import android.app.WallpaperManager
 import android.content.Context
+import android.content.DialogInterface
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.Point
 import android.graphics.PorterDuff
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AlertDialog
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.view.View
@@ -51,15 +54,19 @@ class EditWallpaper : AppCompatActivity() {
 
     fun changeTypeface(v: View) {
         textView_editQuote.changeFont(this, fonts)
+        val cursorPosition = textView_editQuote.text.toString().length
+        textView_editQuote.setSelection(cursorPosition)
     }
 
     fun hideButtons() {
+        textView_editQuote.isCursorVisible = false
         button_changeBackground.visibility = View.INVISIBLE
         button_changeTypeface.visibility = View.INVISIBLE
         button_saveQuote.visibility = View.INVISIBLE
     }
 
     fun showButtons() {
+        textView_editQuote.isCursorVisible = true
         button_changeBackground.visibility = View.VISIBLE
         button_changeTypeface.visibility = View.VISIBLE
         button_saveQuote.visibility = View.VISIBLE
@@ -89,6 +96,18 @@ class EditWallpaper : AppCompatActivity() {
         }
 
         showButtons()
+        val builder = AlertDialog.Builder(this)
+                .setMessage("Set wallpaper")
+                .setPositiveButton("Yes", object: DialogInterface.OnClickListener {
+                    override fun onClick(dialogInterface: DialogInterface, which: Int) {
+                        val wallpaperManager = WallpaperManager.getInstance(this@EditWallpaper)
+                        wallpaperManager.setBitmap(bitmap)
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_info)
+                .create()
+
+        builder.show()
     }
 
     override fun attachBaseContext(newBase: Context?) {
