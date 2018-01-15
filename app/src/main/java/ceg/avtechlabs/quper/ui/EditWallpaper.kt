@@ -97,13 +97,15 @@ class EditWallpaper : AppCompatActivity() {
 
         showButtons()
         val builder = AlertDialog.Builder(this)
-                .setMessage("Set wallpaper")
+                .setTitle("Set wallpaper")
+                .setMessage("Do you want this to set as wallpaper?")
                 .setPositiveButton("Yes", object: DialogInterface.OnClickListener {
                     override fun onClick(dialogInterface: DialogInterface, which: Int) {
                         val wallpaperManager = WallpaperManager.getInstance(this@EditWallpaper)
                         wallpaperManager.setBitmap(bitmap)
                     }
                 })
+                .setNegativeButton("No", null)
                 .setIcon(android.R.drawable.ic_dialog_info)
                 .create()
 
