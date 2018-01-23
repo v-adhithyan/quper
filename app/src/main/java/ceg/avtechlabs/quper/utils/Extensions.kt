@@ -10,6 +10,7 @@ import android.support.v4.content.ContextCompat
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.util.DisplayMetrics
+import android.util.Log
 import android.view.WindowManager
 import android.widget.EditText
 import android.widget.TextView
@@ -54,6 +55,7 @@ fun TextView.changeFont(context: Context, fonts: Array<String>) {
     builder.append(content)
 
     val index = Random().nextInt(fonts.size)
+
     val typefaceSpan = CalligraphyTypefaceSpan(TypefaceUtils.load(context.assets, fonts[index]))
     builder.setSpan(typefaceSpan, 0, content.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
     this.setText(builder, TextView.BufferType.SPANNABLE)

@@ -13,6 +13,7 @@ import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import android.text.SpannableStringBuilder
 import android.text.Spanned
+import android.util.Log
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
@@ -27,9 +28,15 @@ import java.io.FileOutputStream
 import java.util.*
 
 class EditWallpaper : AppCompatActivity() {
-    val fonts = arrayOf("fonts/roboto.ttf",
-            "fonts/proxima_nova.ttf",
+    val fonts = arrayOf("fonts/bebas.ttf",
+            "fonts/cac_champagne.ttf",
+            "fonts/caviar_dreams.ttf",
             "fonts/comic_sans.ttf",
+            "fonts/josefine_sans.ttf",
+            "fonts/pacifio.ttf",
+            "fonts/proxima_nova.ttf",
+            "fonts/roboto.ttf",
+            "fonts/seasrn.ttf",
             "fonts/times_new_roman.ttf")
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,9 +50,13 @@ class EditWallpaper : AppCompatActivity() {
     }
 
     fun changeBackground() {
-        val colors = resources.getIntArray(R.array.colorsArray)
-        val color = colors[Random().nextInt(colors.size)]
-        window.decorView.setBackgroundColor(color)
+        val colorCodes = arrayOf("cc", "ff", "66", "33", "99")
+        val random1 = colorCodes[Random().nextInt(colorCodes.size)]
+        val random2 = colorCodes[Random().nextInt(colorCodes.size)]
+        val random3 = colorCodes[Random().nextInt(colorCodes.size)]
+
+        val hexCode = "#$random1$random2$random3"
+        window.decorView.setBackgroundColor(Color.parseColor(hexCode))
     }
 
     fun changeColor(v: View) {
