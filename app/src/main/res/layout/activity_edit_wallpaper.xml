@@ -12,6 +12,7 @@
         android:layout_centerHorizontal="true"
         android:layout_centerInParent="true"
         android:hint="Type something .."
+        android:gravity="center"
         android:textColorHint="@android:color/white"
         android:id="@+id/textView_editQuote"
         android:textColor="@android:color/white"
@@ -20,7 +21,7 @@
         android:layout_marginBottom="10dp"
         android:textSize="30sp"/>
 
-    <Button
+    <ImageButton
         android:id="@+id/button_changeBackground"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,30 +30,39 @@
         android:layout_alignParentStart="true"
         android:layout_marginLeft="17dp"
         android:layout_marginStart="17dp"
+        android:layout_marginBottom="15dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/palette"
         android:text="Change"
         android:onClick="changeColor"/>
 
-    <Button
+    <ImageButton
         android:id="@+id/button_changeTypeface"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="15dp"
         android:layout_marginStart="15dp"
+        android:layout_marginBottom="15dp"
         android:layout_toEndOf="@+id/button_changeBackground"
         android:layout_toRightOf="@+id/button_changeBackground"
+        android:background="@android:color/transparent"
+        android:src="@drawable/t"
         android:text="Font"
         android:onClick="changeTypeface"/>
 
-    <Button
+    <android.support.design.widget.FloatingActionButton
         android:id="@+id/button_saveQuote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="18dp"
-        android:layout_marginStart="18dp"
-        android:layout_toEndOf="@+id/button_changeTypeface"
-        android:layout_toRightOf="@+id/button_changeTypeface"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="18dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="15dp"
+        android:background="@android:color/transparent"
+        android:foreground="@android:color/transparent"
+        android:src="@android:drawable/ic_menu_save"
         android:text="Save"
         android:onClick="save"/>
 

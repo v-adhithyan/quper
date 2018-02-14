@@ -28,15 +28,12 @@ import java.io.FileOutputStream
 import java.util.*
 
 class EditWallpaper : AppCompatActivity() {
-    val fonts = arrayOf("fonts/bebas.ttf",
-            "fonts/cac_champagne.ttf",
-            "fonts/caviar_dreams.ttf",
+    var i = 0
+    val fonts = arrayOf(
             "fonts/comic_sans.ttf",
-            "fonts/josefine_sans.ttf",
             "fonts/pacifio.ttf",
             "fonts/proxima_nova.ttf",
             "fonts/roboto.ttf",
-            "fonts/seasrn.ttf",
             "fonts/times_new_roman.ttf")
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -64,15 +61,18 @@ class EditWallpaper : AppCompatActivity() {
     }
 
     fun changeTypeface(v: View) {
-        textView_editQuote.changeFont(this, fonts)
+        textView_editQuote.changeFont(this, fonts, i)
         val cursorPosition = textView_editQuote.text.toString().length
         textView_editQuote.setSelection(cursorPosition)
+
+        i = i + 1
     }
 
     fun hideButtons() {
         textView_editQuote.isCursorVisible = false
         button_changeBackground.visibility = View.INVISIBLE
         button_changeTypeface.visibility = View.INVISIBLE
+
         button_saveQuote.visibility = View.INVISIBLE
     }
 

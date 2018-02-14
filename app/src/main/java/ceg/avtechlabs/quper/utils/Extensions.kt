@@ -49,17 +49,17 @@ fun Activity.permissionGranted() : Boolean{
 
 }
 
-fun TextView.changeFont(context: Context, fonts: Array<String>) {
+fun TextView.changeFont(context: Context, fonts: Array<String>, i: Int) {
     val builder = SpannableStringBuilder()
     val content = this.text.toString()
     builder.append(content)
 
-    val index = Random().nextInt(fonts.size)
+    val font = fonts[i % fonts.size]
 
-    val typefaceSpan = CalligraphyTypefaceSpan(TypefaceUtils.load(context.assets, fonts[index]))
+    val typefaceSpan = CalligraphyTypefaceSpan(TypefaceUtils.load(context.assets, font))
     builder.setSpan(typefaceSpan, 0, content.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
     this.setText(builder, TextView.BufferType.SPANNABLE)
-    this.typeface = TypefaceUtils.load(context.assets, fonts[index])
+    this.typeface = TypefaceUtils.load(context.assets, font)
 }
 
 fun EditText.changeFont(context: Context, fonts: Array<String>) {
