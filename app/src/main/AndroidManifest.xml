@@ -28,7 +28,8 @@
         <activity
             android:name=".ui.EditWallpaper"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ui.ViewActivity"></activity>
+        <activity android:name=".ui.ViewActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
