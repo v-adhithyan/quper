@@ -3,22 +3,20 @@ package ceg.avtechlabs.quper.ui
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
-import android.graphics.Canvas
-import android.icu.util.Measure
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import ceg.avtechlabs.quper.R
+import ceg.avtechlabs.quper.adapter.GridAdapter
 import ceg.avtechlabs.quper.utils.getFullPath
+import ceg.avtechlabs.quper.utils.listQuperDirectory
 import ceg.avtechlabs.quper.utils.permissionGranted
-
 import kotlinx.android.synthetic.main.activity_main.*
+
 import java.io.FileOutputStream
 import java.util.*
-import java.util.jar.Manifest
 
 class MainActivity : AppCompatActivity() {
     val PERMISSIONS_WRITE_STORAGE = 300
@@ -30,10 +28,12 @@ class MainActivity : AppCompatActivity() {
         //saveLayout(window.decorView)
         if(!permissionGranted()) {
             requestPermission()
-        } else {
-            saveLayout(window.decorView)
         }
+
+        val adapter = GridAdapter(this, R.layout.grid_layout, listQuperDirectory())
+        gridView.adapter = adapter
     }
+
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         when (requestCode) {
@@ -48,6 +48,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
     fun saveLayout(view: View) {
 
         view.isDrawingCacheEnabled = true
@@ -78,4 +79,5 @@ class MainActivity : AppCompatActivity() {
     fun createNewWallpaper(view: View) {
         startActivity(Intent(this, EditWallpaper::class.java))
     }
+
 }

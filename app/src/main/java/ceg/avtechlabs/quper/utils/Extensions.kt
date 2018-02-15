@@ -25,8 +25,12 @@ import java.util.*
  * Created by Adhithyan V on 25-12-2017.
  */
 
+fun Context.quperDirectory(): File {
+    return File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), Globals.DIRECTORY)
+}
+
 fun Context.checkAndMakeQuperDirectory(): String {
-    val rootDir = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), Globals.DIRECTORY)
+    val rootDir = quperDirectory()
 
     if(!rootDir.exists()) {
         Toast.makeText(this, "dir not exists", Toast.LENGTH_LONG).show()
@@ -36,6 +40,15 @@ fun Context.checkAndMakeQuperDirectory(): String {
     }
 
     return rootDir.toString()
+}
+
+fun Context.listQuperDirectory(): Array<out String>? {
+    val dir = quperDirectory()
+    if(dir.exists()) {
+        return dir.list()
+    }
+
+    return null
 }
 
 fun Context.getFullPath(fileName: String): String {
