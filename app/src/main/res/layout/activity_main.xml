@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/main_content"
+    android:background="@android:color/darker_gray"
     tools:context="ceg.avtechlabs.quper.ui.MainActivity">
 
     <GridView
@@ -13,12 +14,26 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:columnWidth="100dp"
+        android:listSelector="@drawable/background_activate"
+        android:defaultFocusHighlightEnabled="true"
         android:drawSelectorOnTop="true"
         android:gravity="center"
         android:numColumns="2"
         android:stretchMode="columnWidth"
         android:focusable="true"
         android:clickable="true"/>
+
+    <TextView
+        android:id="@+id/textNoData"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textSize="14pt"
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:text="Nothing exists. Tap the pencil at the bottom to experience."
+        />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

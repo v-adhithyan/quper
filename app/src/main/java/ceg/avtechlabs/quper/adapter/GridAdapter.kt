@@ -18,7 +18,7 @@ import java.io.File
  * Created by Adhithyan V on 14-02-2018.
  */
 
-class GridAdapter(internal val context: Context, internal val layoutResourceId: Int,
+class GridAdapter internal constructor(internal val context: Context, internal val layoutResourceId: Int,
                   internal var data: Array<out String>?): ArrayAdapter<String>(context, layoutResourceId, data) {
 
     private fun getBitmapFromFilePath(path: String): Bitmap? {

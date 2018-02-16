@@ -5,4 +5,7 @@
     <string name="admob_app_id">ca-app-pub-1272425295572154~2675289484</string>
     <string name="admob_banner">ca-app-pub-1272425295572154/6276102071</string>
     <string name="admob_inter">ca-app-pub-1272425295572154/4044211473</string>
+
+
+    <string name="action_delete">Delete</string>
 </resources>
