@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_content"
-    android:background="@android:color/darker_gray"
+    tools:ignore="MissingPrefix"
     tools:context="ceg.avtechlabs.quper.ui.MainActivity">
 
     <GridView
@@ -27,12 +28,13 @@
         android:id="@+id/textNoData"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:textSize="14pt"
+        android:textSize="12pt"
         android:gravity="center"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:layout_centerInParent="true"
-        android:text="Nothing exists. Tap the pencil at the bottom to experience."
+        android:text="Tap the pencil to create a solid color wallpaper / Whatsapp status."
+        fontPath="fonts/pacifio.ttf"
         />
 
     <android.support.design.widget.FloatingActionButton
@@ -44,5 +46,14 @@
         android:layout_margin="@dimen/fab_margin"
         android:src="@drawable/pencil"
         android:onClick="createNewWallpaper"/>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/admob_banner"/>
 
 </RelativeLayout>

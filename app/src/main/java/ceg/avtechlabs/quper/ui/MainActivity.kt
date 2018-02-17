@@ -16,10 +16,8 @@ import android.view.View
 import android.widget.*
 import ceg.avtechlabs.quper.R
 import ceg.avtechlabs.quper.adapter.GridAdapter
-import ceg.avtechlabs.quper.utils.getFullPath
-import ceg.avtechlabs.quper.utils.listQuperDirectory
-import ceg.avtechlabs.quper.utils.permissionGranted
-import ceg.avtechlabs.quper.utils.quperDirectory
+import ceg.avtechlabs.quper.utils.*
+import com.google.android.gms.ads.AdRequest
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.grid_layout.*
 import java.io.File
@@ -117,6 +115,8 @@ class MainActivity : AppCompatActivity() {
 
         })
 
+        adMain.loadAd(AdRequest.Builder().build())
+        showAd()
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {

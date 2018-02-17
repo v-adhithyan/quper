@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.View
 import ceg.avtechlabs.quper.R
 import ceg.avtechlabs.quper.utils.quperDirectory
+import ceg.avtechlabs.quper.utils.showAd
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_view.*
 import java.io.File
@@ -24,6 +25,8 @@ class ViewActivity : AppCompatActivity() {
         val fileName = intent.getStringExtra(INTENT_FILE_NAME)
         file = File(quperDirectory(), fileName)
         Picasso.with(this).load(file).into(imageView)
+
+        showAd()
     }
 
     fun shareImage(v: View) {

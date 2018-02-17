@@ -20,6 +20,7 @@ import android.widget.Toast
 import ceg.avtechlabs.quper.R
 import ceg.avtechlabs.quper.utils.changeFont
 import ceg.avtechlabs.quper.utils.getFullPath
+import ceg.avtechlabs.quper.utils.showAd
 import kotlinx.android.synthetic.main.activity_edit_wallpaper.*
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 import uk.co.chrisjenx.calligraphy.CalligraphyTypefaceSpan
@@ -44,6 +45,7 @@ class EditWallpaper : AppCompatActivity() {
         window.statusBarColor = Color.TRANSPARENT
 
         changeBackground()
+        showAd()
     }
 
     fun changeBackground() {
