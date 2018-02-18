@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="ceg.avtechlabs.quper.ui.ViewActivity">
@@ -12,6 +13,16 @@
         android:id="@+id/imageView"/>
 
     <android.support.design.widget.FloatingActionButton
+        android:id="@+id/setFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@drawable/wallpaper"
+        android:onClick="set"/>
+
+    <android.support.design.widget.FloatingActionButton
         android:id="@+id/shareFab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -20,5 +31,15 @@
         android:layout_margin="@dimen/fab_margin"
         android:src="@drawable/share"
         android:onClick="shareImage"/>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/admob_banner"/>
+
 
 </RelativeLayout>

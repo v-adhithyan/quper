@@ -9,20 +9,27 @@
     tools:ignore="MissingPrefix"
     tools:context="ceg.avtechlabs.quper.ui.MainActivity">
 
-    <GridView
+    <!--GridView
         android:id="@+id/gridView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:columnWidth="100dp"
         android:listSelector="@drawable/background_activate"
-        android:defaultFocusHighlightEnabled="true"
         android:drawSelectorOnTop="true"
-        android:gravity="center"
         android:numColumns="2"
         android:stretchMode="columnWidth"
         android:focusable="true"
-        android:clickable="true"/>
+        android:clickable="true"/-->
+
+    <GridView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/gridView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:horizontalSpacing="4dp"
+        android:verticalSpacing="4dp"
+        android:numColumns="2"
+        android:stretchMode="columnWidth" />
+
 
     <TextView
         android:id="@+id/textNoData"

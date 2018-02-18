@@ -39,8 +39,7 @@ class MainActivity : AppCompatActivity() {
 
         Log.d("datasize", "else")
         setContentView(R.layout.activity_main)
-        adapter = GridAdapter(this, R.layout.grid_layout, listQuperDirectory())
-        gridView.adapter = adapter
+        notifyAdapterChange()
         gridView.choiceMode = GridView.CHOICE_MODE_MULTIPLE_MODAL
 
         gridView.setOnItemClickListener(object: AdapterView.OnItemClickListener {
@@ -150,17 +149,25 @@ class MainActivity : AppCompatActivity() {
     fun notifyAdapterChange() {
         val data = listQuperDirectory()
 
-        if(data!!.size == 0) {
-            gridView.visibility = View.INVISIBLE
-            textNoData.visibility = View.VISIBLE
+        if(data == null) {
+            hideGridView()
         } else {
-            gridView.visibility = View.VISIBLE
-            textNoData.visibility = View.INVISIBLE
-            adapter?.notifyDataSetInvalidated()
-            adapter = GridAdapter(this, R.layout.grid_layout, listQuperDirectory())
-            gridView.adapter = adapter
+            if(data.size == 0 && data.isEmpty()) {
+                hideGridView()
+            } else {
+                gridView.visibility = View.VISIBLE
+                textNoData.visibility = View.INVISIBLE
+                adapter?.notifyDataSetInvalidated()
+                adapter = GridAdapter(this, R.layout.grid_layout, data)
+                gridView.adapter = adapter
+            }
+
         }
 
     }
 
+    fun hideGridView() {
+        gridView.visibility = View.INVISIBLE
+        textNoData.visibility = View.VISIBLE
+    }
 }

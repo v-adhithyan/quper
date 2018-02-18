@@ -20,6 +20,7 @@ import android.widget.Toast
 import ceg.avtechlabs.quper.R
 import ceg.avtechlabs.quper.utils.changeFont
 import ceg.avtechlabs.quper.utils.getFullPath
+import ceg.avtechlabs.quper.utils.setWallpaper
 import ceg.avtechlabs.quper.utils.showAd
 import kotlinx.android.synthetic.main.activity_edit_wallpaper.*
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
@@ -45,7 +46,7 @@ class EditWallpaper : AppCompatActivity() {
         window.statusBarColor = Color.TRANSPARENT
 
         changeBackground()
-        showAd()
+        //showAd()
     }
 
     fun changeBackground() {
@@ -109,20 +110,7 @@ class EditWallpaper : AppCompatActivity() {
         }
 
         showButtons()
-        val builder = AlertDialog.Builder(this)
-                .setTitle("Set wallpaper")
-                .setMessage("Do you want this to set as wallpaper?")
-                .setPositiveButton("Yes", object: DialogInterface.OnClickListener {
-                    override fun onClick(dialogInterface: DialogInterface, which: Int) {
-                        val wallpaperManager = WallpaperManager.getInstance(this@EditWallpaper)
-                        wallpaperManager.setBitmap(bitmap)
-                    }
-                })
-                .setNegativeButton("No", null)
-                .setIcon(android.R.drawable.ic_dialog_info)
-                .create()
-
-        builder.show()
+        setWallpaper(this@EditWallpaper, bitmap)
     }
 
     override fun attachBaseContext(newBase: Context?) {

@@ -2,12 +2,16 @@ package ceg.avtechlabs.quper.utils
 
 import android.Manifest
 import android.app.Activity
+import android.app.WallpaperManager
 import android.content.Context
+import android.content.DialogInterface
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
 import android.os.Environment
 import android.os.Handler
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
+import android.support.v7.app.AlertDialog
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.util.DisplayMetrics
@@ -39,9 +43,9 @@ fun Context.checkAndMakeQuperDirectory(): String {
     val rootDir = quperDirectory()
 
     if(!rootDir.exists()) {
-        Toast.makeText(this, "dir not exists", Toast.LENGTH_LONG).show()
+        //Toast.makeText(this, "dir not exists", Toast.LENGTH_LONG).show()
         if(rootDir.mkdirs()) {
-            Toast.makeText(this, "dir created", Toast.LENGTH_LONG).show()
+            //Toast.makeText(this, "dir created", Toast.LENGTH_LONG).show()
         }
     }
 
@@ -112,4 +116,22 @@ fun Context.showAd() {
     Handler().postDelayed({
         showInterstitialAd()
             }, 15000)
+}
+
+
+fun Context.setWallpaper(context: Context, bitmap: Bitmap) {
+    val builder = AlertDialog.Builder(this)
+            .setTitle("Set wallpaper")
+            .setMessage("Do you want this to set as wallpaper?")
+            .setPositiveButton("Yes", object: DialogInterface.OnClickListener {
+                override fun onClick(dialogInterface: DialogInterface, which: Int) {
+                    val wallpaperManager = WallpaperManager.getInstance(context)
+                    wallpaperManager.setBitmap(bitmap)
+                }
+            })
+            .setNegativeButton("No", null)
+            .setIcon(android.R.drawable.ic_dialog_info)
+            .create()
+
+    builder.show()
 }
