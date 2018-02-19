@@ -115,7 +115,7 @@ class MainActivity : AppCompatActivity() {
         })
 
         adMain.loadAd(AdRequest.Builder().build())
-        showAd()
+        //showAd()
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {

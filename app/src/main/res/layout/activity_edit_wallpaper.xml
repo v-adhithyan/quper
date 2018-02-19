@@ -21,7 +21,7 @@
         android:layout_marginBottom="10dp"
         android:textSize="30sp"/>
 
-    <ImageButton
+    <android.support.design.widget.FloatingActionButton
         android:id="@+id/button_changeBackground"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
         android:text="Change"
         android:onClick="changeColor"/>
 
-    <ImageButton
+    <android.support.design.widget.FloatingActionButton
         android:id="@+id/button_changeTypeface"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -50,6 +50,21 @@
         android:src="@drawable/t"
         android:text="Font"
         android:onClick="changeTypeface"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/button_changeFontColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_toEndOf="@+id/button_changeTypeface"
+        android:layout_toRightOf="@+id/button_changeTypeface"
+        android:background="@android:color/transparent"
+        android:src="@drawable/invert"
+        android:text="Font Color"
+        android:onClick="changeFontColor"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/button_saveQuote"

@@ -30,7 +30,7 @@ class ViewActivity : AppCompatActivity() {
         file = File(quperDirectory(), fileName)
         Picasso.with(this).load(file).into(imageView)
 
-        showAd()
+        //showAd()
         adView.loadAd(AdRequest.Builder().build())
     }
 

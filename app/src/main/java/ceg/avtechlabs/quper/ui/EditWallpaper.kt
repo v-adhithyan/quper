@@ -38,6 +38,8 @@ class EditWallpaper : AppCompatActivity() {
             "fonts/roboto.ttf",
             "fonts/times_new_roman.ttf")
 
+    var whiteColor = true
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_wallpaper)
@@ -57,6 +59,7 @@ class EditWallpaper : AppCompatActivity() {
 
         val hexCode = "#$random1$random2$random3"
         window.decorView.setBackgroundColor(Color.parseColor(hexCode))
+        Log.d("windowcolor", hexCode)
     }
 
     fun changeColor(v: View) {
@@ -71,18 +74,34 @@ class EditWallpaper : AppCompatActivity() {
         i = i + 1
     }
 
+    fun changeFontColor(v: View) {
+        val currentColor = textView_editQuote.textColors
+
+        if(whiteColor) {
+            whiteColor = false
+            textView_editQuote.setTextColor(Color.BLACK)
+            textView_editQuote.setHintTextColor(Color.BLACK)
+        } else {
+            whiteColor = true
+            textView_editQuote.setTextColor(Color.WHITE)
+            textView_editQuote.setHintTextColor(Color.WHITE)
+        }
+    }
+
     fun hideButtons() {
         textView_editQuote.isCursorVisible = false
         button_changeBackground.visibility = View.INVISIBLE
         button_changeTypeface.visibility = View.INVISIBLE
-
+        button_changeFontColor.visibility = View.INVISIBLE
         button_saveQuote.visibility = View.INVISIBLE
+
     }
 
     fun showButtons() {
         textView_editQuote.isCursorVisible = true
         button_changeBackground.visibility = View.VISIBLE
         button_changeTypeface.visibility = View.VISIBLE
+        button_changeFontColor.visibility = View.VISIBLE
         button_saveQuote.visibility = View.VISIBLE
     }
 
