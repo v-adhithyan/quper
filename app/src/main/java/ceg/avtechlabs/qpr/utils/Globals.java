@@ -1,4 +1,4 @@
-package ceg.avtechlabs.quper.utils;
+package ceg.avtechlabs.qpr.utils;
 
 /**
  * Created by Adhithyan V on 25-12-2017.

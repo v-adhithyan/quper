@@ -1,4 +1,4 @@
-package ceg.avtechlabs.quper.ui
+package ceg.avtechlabs.qpr.ui
 
 import android.content.Intent
 import android.graphics.BitmapFactory
@@ -8,13 +8,11 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import ceg.avtechlabs.quper.R
-import ceg.avtechlabs.quper.utils.quperDirectory
-import ceg.avtechlabs.quper.utils.setWallpaper
-import ceg.avtechlabs.quper.utils.showAd
+import ceg.avtechlabs.qpr.R
+import ceg.avtechlabs.qpr.utils.quperDirectory
+import ceg.avtechlabs.qpr.utils.setWallpaper
 import com.google.android.gms.ads.AdRequest
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_view.*
 import java.io.File
 

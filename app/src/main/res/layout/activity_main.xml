@@ -7,7 +7,7 @@
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_content"
     tools:ignore="MissingPrefix"
-    tools:context="ceg.avtechlabs.quper.ui.MainActivity">
+    tools:context="ceg.avtechlabs.qpr.ui.MainActivity">
 
     <!--GridView
         android:id="@+id/gridView"

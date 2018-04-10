@@ -7,7 +7,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 26
     defaultConfig {
-        applicationId "ceg.avtechlabs.quper"
+        applicationId "ceg.avtechlabs.qpr"
         minSdkVersion 15
         targetSdkVersion 26
         versionCode 3

@@ -1,4 +1,4 @@
-package ceg.avtechlabs.quper
+package ceg.avtechlabs.qpr
 
 import org.junit.Test
 

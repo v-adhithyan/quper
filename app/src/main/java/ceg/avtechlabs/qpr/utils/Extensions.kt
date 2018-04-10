@@ -1,4 +1,4 @@
-package ceg.avtechlabs.quper.utils
+package ceg.avtechlabs.qpr.utils
 
 import android.Manifest
 import android.app.Activity
@@ -9,27 +9,19 @@ import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.os.Environment
 import android.os.Handler
-import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AlertDialog
 import android.text.SpannableStringBuilder
 import android.text.Spanned
-import android.util.DisplayMetrics
-import android.util.Log
-import android.view.WindowManager
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
-import ceg.avtechlabs.quper.R
+import ceg.avtechlabs.qpr.R
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
-import kotlinx.android.synthetic.main.activity_edit_wallpaper.*
 import uk.co.chrisjenx.calligraphy.CalligraphyTypefaceSpan
 import uk.co.chrisjenx.calligraphy.TypefaceUtils
 import java.io.File
-import java.util.*
-import java.util.concurrent.Executors
 
 /**
  * Created by Adhithyan V on 25-12-2017.

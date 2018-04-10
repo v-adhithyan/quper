@@ -1,31 +1,21 @@
-package ceg.avtechlabs.quper.ui
+package ceg.avtechlabs.qpr.ui
 
 import android.annotation.TargetApi
-import android.app.WallpaperManager
 import android.content.Context
-import android.content.DialogInterface
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.Point
-import android.graphics.PorterDuff
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.app.AlertDialog
-import android.text.SpannableStringBuilder
-import android.text.Spanned
 import android.util.Log
 import android.view.View
-import android.widget.TextView
 import android.widget.Toast
-import ceg.avtechlabs.quper.R
-import ceg.avtechlabs.quper.utils.changeFont
-import ceg.avtechlabs.quper.utils.getFullPath
-import ceg.avtechlabs.quper.utils.setWallpaper
-import ceg.avtechlabs.quper.utils.showAd
+import ceg.avtechlabs.qpr.R
+import ceg.avtechlabs.qpr.utils.changeFont
+import ceg.avtechlabs.qpr.utils.getFullPath
+import ceg.avtechlabs.qpr.utils.setWallpaper
 import kotlinx.android.synthetic.main.activity_edit_wallpaper.*
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
-import uk.co.chrisjenx.calligraphy.CalligraphyTypefaceSpan
-import uk.co.chrisjenx.calligraphy.TypefaceUtils
 import java.io.FileOutputStream
 import java.util.*
 

@@ -1,10 +1,8 @@
-package ceg.avtechlabs.quper.ui
+package ceg.avtechlabs.qpr.ui
 
 import android.app.ProgressDialog
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Bitmap
-import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
@@ -14,16 +12,12 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.*
-import ceg.avtechlabs.quper.R
-import ceg.avtechlabs.quper.adapter.GridAdapter
-import ceg.avtechlabs.quper.utils.*
+import ceg.avtechlabs.qpr.R
+import ceg.avtechlabs.qpr.adapter.GridAdapter
+import ceg.avtechlabs.qpr.utils.*
 import com.google.android.gms.ads.AdRequest
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.grid_layout.*
 import java.io.File
-
-import java.io.FileOutputStream
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
     val PERMISSIONS_WRITE_STORAGE = 300

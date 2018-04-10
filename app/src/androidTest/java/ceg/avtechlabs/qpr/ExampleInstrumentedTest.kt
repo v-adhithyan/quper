@@ -1,4 +1,4 @@
-package ceg.avtechlabs.quper
+package ceg.avtechlabs.qpr
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4

@@ -1,4 +1,4 @@
-package ceg.avtechlabs.quper.adapter
+package ceg.avtechlabs.qpr.adapter
 
 import android.app.Activity
 import android.content.Context
@@ -9,8 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
-import ceg.avtechlabs.quper.R
-import ceg.avtechlabs.quper.utils.quperDirectory
+import ceg.avtechlabs.qpr.R
+import ceg.avtechlabs.qpr.utils.quperDirectory
 import com.squareup.picasso.Picasso
 import java.io.File
 

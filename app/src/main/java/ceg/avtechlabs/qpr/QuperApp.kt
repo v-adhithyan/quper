@@ -1,4 +1,4 @@
-package ceg.avtechlabs.quper
+package ceg.avtechlabs.qpr
 
 import android.app.Application
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig
